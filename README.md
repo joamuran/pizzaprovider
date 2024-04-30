@@ -55,7 +55,9 @@ On tenim:
 * `screens`: Representa la capa de la vista, on estan totes les pantalles de l'aplicació.
 * `screens/widgets`: Conté els widgets personalitzats que utilitzarem a les pantalles o a altres widgets.
 
+## Estructura de l'aplicació
 
+![](img/esquema.png)
 
 
 
