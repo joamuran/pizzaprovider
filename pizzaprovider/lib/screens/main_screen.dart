@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pizzaprovider/screens/beguda_screen.dart';
+import 'package:pizzaprovider/screens/entrants_screen.dart';
 import 'package:pizzaprovider/screens/pizzes_screen.dart';
 import 'package:pizzaprovider/screens/widgets/cart_icon.dart';
 
@@ -56,11 +58,11 @@ class MainScreen extends StatelessWidget {
             ),
             Center(
               // Contingut de la segona pestanya
-              child: Text("acompanyamenta"),
+              child: EntrantsScreen(),
             ),
             Center(
               // Contingut de la tercara pestanya
-              child: Text("Beguda"),
+              child: BegudaScreen(),
             ),
           ],
         ),

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:pizzaprovider/models/pizza_model.dart';
+import 'package:pizzaprovider/models/beguda_model.dart';
 import 'package:pizzaprovider/providers/pizza_provider.dart';
 import 'package:provider/provider.dart';
 
-class PizzaItem extends StatelessWidget {
-  Pizza? pizza;
+class BegudaItem extends StatelessWidget {
+  Beguda? beguda;
 
-  PizzaItem(this.pizza, {super.key});
+  BegudaItem(this.beguda, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class PizzaItem extends StatelessWidget {
       child: Row(
         children: <Widget>[
           Image.network(
-            "${providerPizzes.serverPrefix}${pizza?.img ?? ''}",
+            "${providerPizzes.serverPrefix}${beguda?.img ?? ''}",
             width: 100,
             height: 100,
             fit: BoxFit.cover,
@@ -25,35 +25,34 @@ class PizzaItem extends StatelessWidget {
                 const SizedBox(
                   width:100, 
                   height:100,
-                  child: FittedBox(child: Icon(Icons.local_pizza_outlined))),
+                  child: FittedBox(child: Icon(Icons.local_drink_outlined))),
           ),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  pizza?.nom! ?? "",
+                  beguda?.nom! ?? "",
                   style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
                 ),
                 
-                Text('${pizza?.desc}'),
                 
               ],
             ),
           ),
-          Text('${pizza?.preu}€',
+          Text('${beguda?.preu}€',
           style: const TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),),
           Column(
             children: <Widget>[
               IconButton(
                 icon: const Icon(Icons.add),
                 onPressed: () {
-                  providerPizzes.afigPizzaACistella(pizza?.id ?? "");
+                  providerPizzes.afigBegudaACistella(beguda?.id ?? "");
                 },
               ),
-              Text(pizza?.quantitat.toString() ?? "0"),
+              Text(beguda?.quantitat.toString() ?? "0"),
               IconButton(icon: const Icon(Icons.remove), onPressed: () {
-                providerPizzes.suprimeixPizzaACistella(pizza?.id ?? "");
+                providerPizzes.suprimeixBegudaACistella(beguda?.id ?? "");
               })
             ],
           ),

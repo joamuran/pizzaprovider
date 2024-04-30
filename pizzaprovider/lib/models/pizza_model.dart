@@ -1,23 +1,22 @@
 /* Model per a les pizzes */
 
-class Pizza {
-  String id = "";
-  String? nom;
+import 'package:pizzaprovider/models/producte_model.dart';
+
+class Pizza extends Producte{
   String? desc;
   bool? vegetariana;
   List<String>? alergens;
   String? img;
   double? preu;
-  int quantitat=0; // Indica la quantitat de pizzes a la cistella
 
   Pizza({
-    required this.id,
-    this.nom,
+    required super.id,  // Com que deriva de producte, l'id el té producte
+    required super.nom,
     this.desc,
     this.vegetariana,
     this.alergens,
     this.img,
-    this.preu,
+    this.preu
     
   });
 
@@ -34,7 +33,9 @@ class Pizza {
       vegetariana: json['vegetariana'],
       alergens: List<String>.from(json['alergens']),
       img: json['img'],
-      preu: json['preu'],
+      // Com que pot que l'API ens retorne un enter, cal fer la conversió a doube
+      preu: (json['preu'] is int) ? (json['preu'] as int).toDouble() : json['preu'],
+      
     );
   }
 }

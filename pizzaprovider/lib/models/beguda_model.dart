@@ -2,11 +2,11 @@
 
 import 'package:pizzaprovider/models/producte_model.dart';
 
-class Entrant extends Producte{
+class Beguda extends Producte{
   String? img;
   double? preu;
 
-  Entrant({
+  Beguda({
     required super.id,
     required super.nom,
     this.img,
@@ -14,13 +14,13 @@ class Entrant extends Producte{
     
   });
 
-  factory Entrant.fromJSON(Map<String, dynamic> json) {
+  factory Beguda.fromJSON(Map<String, dynamic> json) {
     // Podem fer ús d'un mètode de Factoria, i que ens convertisca
-    // un JSON en una instància d'Entrant.
+    // un JSON en una instància de Beguda.
     // Aquesta és una forma alternativa de fer-ho a com ho hem
     // vist al curs.
     
-    return Entrant(
+    return Beguda(
       id: json['id'],
       nom: json['nom'],
       img: json['img'],
